@@ -1,0 +1,11 @@
+
+Unreleased
+
+  * Added Gitlab CI/CD
+  * Added Dockerfile
+  * Added Multistage-build to install hmmscan
+  * Added Multistage-build to install python3 libs
+  * Initial Thor 
+  * Changed Dummy function to groups and subgroups
+  * Added Runner, which runs first part of script
+  * Added Rakefile for production
