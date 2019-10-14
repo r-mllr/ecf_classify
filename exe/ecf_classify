@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "ecf_classify"
+
+EcfClassify::CLI.start(ARGV)
