@@ -1,0 +1,73 @@
+---
+
+stages:
+    - test
+    - build
+    - test_build
+    - deploy
+    
+
+build:
+    stage: build
+    script:
+      - docker build --tag ecf_classify:test . 
+
+
+test_rspec:
+  stage: test
+  script:
+    - bundle install
+    - rake build
+    - rake install
+    - rake spec
+
+test_aruba:
+  stage: test
+  script:
+    - bundle install
+    - rake build
+    - rake install
+    - rake features
+
+test_build_help:
+  stage: test_build
+  script:
+    - docker run --rm ecf_classify:test ecf_classify help
+
+test_build_help_groups:
+  stage: test_build
+  script:
+    - docker run --rm ecf_classify:test ecf_classify help groups
+
+
+test_build_help_subgroups:
+  stage: test_build
+  script:
+    - docker run --rm ecf_classify:test ecf_classify help subgroups
+
+
+test_build_exec_groups:
+  stage: test_build
+  script:
+    - docker run --rm -v $(pwd)/spec:/spec ecf_classify:test ecf_classify groups /spec/support/sequences.fa
+
+
+test_build_exec_subgroups:
+  stage: test_build
+  script:
+    - docker run --rm -v $(pwd)/spec:/spec ecf_classify:test ecf_classify subgroups /spec/support/sequences.fa
+
+
+test_build_exec_groups_prob:
+  stage: test_build
+  script:
+    - docker run --rm -v $(pwd)/spec:/spec ecf_classify:test ecf_classify groups /spec/support/sequences.fa -p /spec/support/test.prob
+    - "[ -e spec/support/test.prob ]"
+    - docker run --rm -v $(pwd)/spec:/spec ecf_classify:test rm /spec/support/test.prob
+
+test_build_exec_subgroups_prob:
+  stage: test_build
+  script:
+    - docker run --rm -v $(pwd)/spec:/spec ecf_classify:test ecf_classify subgroups /spec/support/sequences.fa -p /spec/support/test.prob
+    - "[ -e spec/support/test.prob ]"
+    - docker run --rm -v $(pwd)/spec:/spec ecf_classify:test rm /spec/support/test.prob
