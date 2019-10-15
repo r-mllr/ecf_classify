@@ -1,10 +1,20 @@
-# EcfClassify
+# ECF Classify
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ecf_classify`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
 
 ## Installation
+
+### As a command line tool
+
+You can install `ecf_classify` with the ruby package manager
+
+```bash
+gem install ecf_classify
+```
+
+### As a Ruby module
 
 Add this line to your application's Gemfile:
 
@@ -26,13 +36,13 @@ Or install it yourself as:
 ### General 
 ```
 ecf_classify commands:
+  ecf_classify --version         # print the version
   ecf_classify groups [FILE]     # Classifies protein sequences into ECF groups
   ecf_classify help [COMMAND]    # Describe available commands or one specific command
   ecf_classify subgroups [FILE]  # Classifies protein sequences into ECF subgroups
 
 Options:
   -h, [--help], [--no-help]
-
 ```
 
 ### Groups

@@ -8,6 +8,13 @@ module EcfClassify
   class CLI < Thor
     package_name "#{EcfClassify::NAME}"
     class_option :help, aliases: "-h", type: :boolean
+    map %w[--version] => :__print_version
+
+    desc "--version", "print the version"
+    def __print_version
+      puts "#{EcfClassify::NAME}: #{EcfClassify::VERSION}"
+      exit
+    end
 
     desc "groups [FILE]", "Classifies protein sequences into ECF groups"
     method_option :probabilities, type: :string, aliases: "-p", default: nil
