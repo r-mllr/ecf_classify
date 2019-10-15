@@ -1,4 +1,4 @@
 module EcfClassify
-  VERSION = "1.0.0"
+  VERSION = "1.0.1"
   NAME = 'ecf_classify'
 end
