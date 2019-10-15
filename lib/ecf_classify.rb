@@ -6,7 +6,7 @@ require 'thor'
 
 module EcfClassify
   class CLI < Thor
-    package_name "ecf_classify"
+    package_name "#{EcfClassify::NAME}"
     class_option :help, aliases: "-h", type: :boolean
 
     desc "groups [FILE]", "Classifies protein sequences into ECF groups"
