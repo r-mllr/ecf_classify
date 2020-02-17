@@ -21,7 +21,18 @@ module EcfClassify
         subout.close
         return [out,$?.exitstatus]
       else
-        return ["No such database",2]
+        return ["No such database", 2]
+      end
+    end
+
+    def self.hmmsearch(infile, outfile, db)
+      if DBLOCATION.key? db
+        hmm = Utils.path(DBLOCATION[db])
+        cmd = "hmmsearch --noali --domtblout #{outfile} #{Utils.path(DBLOCATION[db])} #{infile} 2>&1"
+        out = `#{cmd}`
+        return [out, $?.exitstatus]
+      else
+        return ["No such database", 2]
       end
     end
   end

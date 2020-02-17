@@ -35,12 +35,12 @@ with open(args.pfam, 'r') as reader:
         if not row.startswith('#'):
             row = row.strip().split(' ')
             row=list(filter(None, row))
-            if row[0] == 'Sigma70_r2':
-                if not hmmscan_cons[row[3]][0]:
-                  hmmscan_cons[row[3]][0] = (row[17],row[18])
-            elif (row[0] == 'Sigma70_r4' or row[0] == 'Sigma70_r4_2'):
-                if not hmmscan_cons[row[3]][1]:
-                  hmmscan_cons[row[3]][1] = (row[17],row[18])
+            if row[3] == 'Sigma70_r2':
+                if not hmmscan_cons[row[0]][0]:
+                  hmmscan_cons[row[0]][0] = (row[17],row[18])
+            elif (row[3] == 'Sigma70_r4' or row[3] == 'Sigma70_r4_2'):
+                if not hmmscan_cons[row[0]][1]:
+                  hmmscan_cons[row[0]][1] = (row[17],row[18])
 
 #presence of sigma3
 hmmscan_s3 = {protein:False for protein in proteins}
@@ -49,8 +49,8 @@ with open(args.sigma3, 'r') as reader:
         if not row.startswith('#'):
             row = row.strip().split(' ')
             row=list(filter(None, row))
-            if row[0] == 'Sigma70_r3':
-                hmmscan_s3[row[3]] = True
+            if row[3] == 'Sigma70_r3':
+                hmmscan_s3[row[0]] = True
    
 #Score of the general HMM             
 positives = {protein:0 for protein in proteins}
@@ -59,7 +59,7 @@ with open(args.general, 'r') as reader:
         if not row.startswith('#'):
             row = row.strip().split(' ')
             row=list(filter(None, row))
-            positives[row[3]] = float(row[7])
+            positives[row[0]] = float(row[7])
 
 # Extract postions of sigma2 and sigma4
 hmmscan = {protein:{'Sigma2': [0,0,10], 'Sigma4': [0,0,10]} for protein in proteins}
@@ -68,11 +68,11 @@ with open(args.pfam, 'r') as reader:
         if not row.startswith('#'):
             row = row.strip().split(' ')
             row=list(filter(None, row))
-            if row[0] == 'Sigma70_r2' and float(row[11]) < hmmscan[row[3]]['Sigma2'][2]:
-                hmmscan[row[3]]['Sigma2'] = [int(row[19]), int(row[20]), float(row[11])]
-            elif (row[0] == 'Sigma70_r4' or row[0] == 'Sigma70_r4_2')\
-                and float(row[11]) < hmmscan[row[3]]['Sigma4'][2]:
-                hmmscan[row[3]]['Sigma4'] = [int(row[19]), int(row[20]), float(row[11])]
+            if row[3] == 'Sigma70_r2' and float(row[11]) < hmmscan[row[0]]['Sigma2'][2]:
+                hmmscan[row[0]]['Sigma2'] = [int(row[19]), int(row[20]), float(row[11])]
+            elif (row[3] == 'Sigma70_r4' or row[3] == 'Sigma70_r4_2')\
+                and float(row[11]) < hmmscan[row[0]]['Sigma4'][2]:
+                hmmscan[row[0]]['Sigma4'] = [int(row[19]), int(row[20]), float(row[11])]
 
 ecfs = []
 writer = sys.stdout

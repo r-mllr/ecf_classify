@@ -57,15 +57,15 @@ with open(file_hmmscan, 'r') as reader:
         if not row.startswith('#'):
             row = row.strip().split(' ')
             row = list(filter(None, row))
-#            if row[0] == 'ECF236.fa-iter2':
-#                row[0] = 'ECF120.fa-iter2'            
-            if row[3] in bit_scores:
-                index = clusters_list.index(row[0].split('.')[0])
-                bit_scores[row[3]][index] = float(row[7])
+#            if row[3] == 'ECF236.fa-iter2':
+#                row[3] = 'ECF120.fa-iter2'            
+            if row[0] in bit_scores:
+                index = clusters_list.index(row[3].split('.')[0])
+                bit_scores[row[0]][index] = float(row[7])
             else:
-                bit_scores[row[3]] = [0 for a in clusters_list]
-                index = clusters_list.index(row[0].split('.')[0])
-                bit_scores[row[3]][index] = float(row[7])
+                bit_scores[row[0]] = [0 for a in clusters_list]
+                index = clusters_list.index(row[3].split('.')[0])
+                bit_scores[row[0]][index] = float(row[7])
                 
 roc = float(args.th)#sys.argv[1])
 

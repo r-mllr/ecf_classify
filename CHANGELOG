@@ -12,3 +12,9 @@ Dockerfile:
   * Added Multistage-build to install hmmscan
   * Added Multistage-build to install python3 libs
   * Added hmmsearch to image
+  * Updated to python 3.8
+  * Updated to hmmer version 3.3
+
+Package:
+  * New module HMMER with hmmsearch as function
+  * scripts: changed hmmscan to hmmsearch
