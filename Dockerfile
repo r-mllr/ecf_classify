@@ -42,6 +42,7 @@ RUN apk add --no-cache --virtual build-deps build-base && \
 
 COPY --from=ruby /usr/local/bundle /usr/local/bundle
 COPY --from=builder /src/bin/hmmscan /usr/bin/
+COPY --from=builder /src/bin/hmmsearch /usr/bin/
 COPY --from=python /install/lib/python3.6/ /usr/local/lib/python3.6/
 
 
