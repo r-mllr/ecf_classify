@@ -11,4 +11,17 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.before(:suite) do
+    EcfClassify::Zenodo::FILES.each do |key,value|
+      file = EcfClassify::Zenodo.path(value)
+      if File.exists? file
+        File.delete(file)
+      end
+    end
+    file = EcfClassify::Zenodo.path(EcfClassify::Zenodo::STATUS_FILE)
+    if File.exists? file
+      File.delete(file)
+    end
+  end
 end

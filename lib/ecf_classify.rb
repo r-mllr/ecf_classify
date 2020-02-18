@@ -2,6 +2,7 @@ require "ecf_classify/version"
 require "ecf_classify/runner"
 require "ecf_classify/hmmer"
 require "ecf_classify/utils"
+require "ecf_classify/zenodo"
 require "tempfile"
 require 'thor'
 
