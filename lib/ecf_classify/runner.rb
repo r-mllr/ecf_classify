@@ -31,11 +31,11 @@ module EcfClassify
       case type
       when :groups
         th = 0.0016
-        stats = Utils.path("data/statistics/groups.txt")
+        stats = EcfClassify::Zenodo.path(:groups_statistics)
         ungrouped = "Ungrouped"
       when :subgroups
         th = 0.0041
-        stats = Utils.path("data/statistics/subgroups.txt")
+        stats = EcfClassify::Zenodo.path(:subgroups_statistics)
         ungrouped = "Unsubgrouped"
       else
         raise "type #{type} unknown"

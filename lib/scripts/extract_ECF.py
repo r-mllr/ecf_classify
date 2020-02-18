@@ -105,9 +105,7 @@ for p in proteins:
     #Check general model score
     writer.write(str(positives[p])+'\t')
     #make decision
-    if hmmscan_s3[p]:
-        writer.write('Non-ECF\n')
-    elif hmmscan_cons[p][0] and hmmscan_cons[p][1]:
+    if hmmscan_cons[p][0] and hmmscan_cons[p][1]:
         if (hmmscan[p]['Sigma4'][0]-(hmmscan[p]['Sigma2'][1]+1)) >=50:
             writer.write('Non-ECF\n')
         elif positives[p] >= 60.8:
@@ -116,7 +114,10 @@ for p in proteins:
         else:
             writer.write('Non-ECF\n')
     elif hmmscan_cons[p][0] or hmmscan_cons[p][1]:
-        writer.write('ECF-like\n')
+      if hmmscan_s3[p]:
+          writer.write('Non-ECF\n')
+      else:
+          writer.write('ECF-like\n')
     else:
         writer.write('Non-ECF\n')
 

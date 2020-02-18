@@ -42,8 +42,7 @@ RUN apk add --no-cache --virtual build-deps build-base && \
   apk del build-deps
 
 COPY --from=ruby /usr/local/bundle /usr/local/bundle
-COPY --from=builder /src/bin/hmmscan /usr/bin/
-COPY --from=builder /src/bin/hmmsearch /usr/bin/
+COPY --from=builder /src/bin/hmm* /usr/bin/
 COPY --from=python /install/lib/python3* /usr/local/lib/python3/
 
 
@@ -53,5 +52,7 @@ ENV PYTHONPATH=${PYTHONPATH}:/usr/local/lib/python3/site-packages/:/usr/local/li
 # Install build dependencies - required for gems with native dependencies
 
 WORKDIR /
+
+RUN ecf_classify download
 
 CMD ["ecf_classify", "help"]

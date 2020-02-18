@@ -50,6 +50,11 @@ module EcfClassify
       end
     end
 
+    desc "download", "Downloads HMM models from Zenodo"
+    def download
+      EcfClassify::Zenodo.download
+    end
+
     no_commands do
       def handle_help_option(method_name)
         if options[:help]
