@@ -19,9 +19,12 @@ module EcfClassify
     end
 
     def self.hmmsearch(infile, outfile, db)
-      if DBLOCATION.key? db
-        hmm = Utils.path(DBLOCATION[db])
-        cmd = "hmmsearch --noali --domtblout #{outfile} #{Utils.path(DBLOCATION[db])} #{infile} 2>&1"
+      unless EcfClassify::Zenodo.status
+        EcfClassify::Zenodo.download
+      end
+      if EcfClassify::Zenodo::FILES.key? db
+        hmm = EcfClassify::Zenodo.path(db)
+        cmd = "hmmsearch --noali --domtblout #{outfile} #{hmm} #{infile} 2>&1"
         out = `#{cmd}`
         return [out, $?.exitstatus]
       else

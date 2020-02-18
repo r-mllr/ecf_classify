@@ -12,7 +12,7 @@ module EcfClassify
         raise out[0] if out[1] != 0
         out = HMMER.hmmsearch(seqs,sigma3.path,:sigma3)
         raise out[0] if out[1] != 0
-        out = HMMER.hmmsearch(seqs,pfam.path,:pfam) 
+        out = HMMER.hmmsearch(seqs,pfam.path,:sigma2_4) 
         raise out[0] if out[1] != 0
         script = Utils.path("lib/scripts/extract_ECF.py")
         out = `python3 #{script} --general #{general.path} --pfam #{pfam.path} --sigma3 #{sigma3.path} --infile #{seqs} --conserved #{file}`
