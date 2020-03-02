@@ -86,6 +86,12 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/r-mllr/ecf_classify.
 
+## Publication
+
+Please cite:
+
+(unpublished) Casas-Pastor D., Müller R.R., Jaenicke S., Brinkrolf K., Mascher T., Goesmann A., Fritz G. [Expansion and re-classification of the extracytoplasmic function (ECF) σ factor family]()
+
 ## License
 
 The gem is available as open source under the terms of the [GPL-3](https://opensource.org/licenses/GPL-3.0).
