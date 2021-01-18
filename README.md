@@ -6,6 +6,17 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 TODO: Delete this and the text above, and describe your gem
 
+## Prerequisite
+
+Please install [hmmer 3](http://hmmer.org/documentation.html).
+Furthermore, you need to install the following python packages
+
+```
+# requirements.txt
+numpy
+biopython==1.78
+```
+
 ## Installation
 
 ### As a command line tool
