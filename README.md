@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/ecf_classify.svg)](https://badge.fury.io/rb/ecf_classify)
 
-A small software pipeline for the discovery of potentially new ECF σ factors and the prediction of their functionality with regards to the new classification schema [Casas-Pastor et al.](https://doi.org/10.1093/nar/gkaa1229)
+A small software pipeline for the discovery of potentially new ECF σ factors and the prediction of their functionality with regards to the new classification schema ([Casas-Pastor et al.](https://doi.org/10.1093/nar/gkaa1229)).
 
 ## Prerequisite
 
