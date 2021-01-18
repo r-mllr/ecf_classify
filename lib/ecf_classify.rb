@@ -55,6 +55,11 @@ module EcfClassify
       EcfClassify::Zenodo.download
     end
 
+    desc "cite", "How to cite"
+    def cite
+      puts "Thank you for using #{EcfClassify::NAME} in version #{EcfClassify::VERSION}.\nPlease cite \n\n#{EcfClassify::CITE}\n\nif you are using #{EcfClassify::NAME}"
+    end
+
     no_commands do
       def handle_help_option(method_name)
         if options[:help]
