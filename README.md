@@ -17,6 +17,8 @@ numpy
 biopython==1.78
 ```
 
+`python3 -m pip install -r requirements.txt`
+
 ## Installation
 
 ### As a command line tool
