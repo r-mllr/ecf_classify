@@ -21,7 +21,7 @@ module EcfClassify
  ## returns
  ##   true if everything is ok
     def self.download
-      perma_record = open(RECORD_URL)
+      perma_record = URI.open(RECORD_URL)
       FILES.each do |key,file|
         download = open(perma_record.base_uri.to_s + "/files/" + file)
         IO.copy_stream(download, path(key))

@@ -2,9 +2,20 @@
 
 [![Gem Version](https://badge.fury.io/rb/ecf_classify.svg)](https://badge.fury.io/rb/ecf_classify)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ecf_classify`. To experiment with that code, run `bin/console` for an interactive prompt.
+A small software pipeline for the discovery of potentially new ECF σ factors and the prediction of their functionality with regards to the new classification schema [Casas-Pastor et al.](https://doi.org/10.1093/nar/gkaa1229)
 
-TODO: Delete this and the text above, and describe your gem
+## Prerequisite
+
+Please install [hmmer 3](http://hmmer.org/documentation.html).
+Furthermore, you need to install the following python packages
+
+```
+# requirements.txt
+numpy
+biopython==1.78
+```
+
+`python3 -m pip install -r requirements.txt`
 
 ## Installation
 
@@ -79,18 +90,17 @@ Classifies protein sequences into ECF subgroups
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
---> This will not be done before submission
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/r-mllr/ecf_classify.
 
-## Publication
+## Publication / How to cite
 
 Please cite:
 
-(unpublished) Casas-Pastor D., Müller R.R., Jaenicke S., Brinkrolf K., Mascher T., Goesmann A., Fritz G. [Expansion and re-classification of the extracytoplasmic function (ECF) σ factor family]()
+Casas-Pastor D, Müller RR, Jaenicke S, Brinkrolf K, Becker A, Buttner MJ, Gross CA, Mascher T, Goesmann A, Fritz G. Expansion and re-classification of the extracytoplasmic function (ECF) σ factor family. Nucleic Acids Res. 2021 Jan 4:gkaa1229. doi: 10.1093/nar/gkaa1229. Epub ahead of print. PMID: 33398323.
 
 ## License
 
